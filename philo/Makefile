@@ -6,17 +6,17 @@
 #    By: feberman <feberman@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/12 14:30:52 by feberman          #+#    #+#              #
-#    Updated: 2023/11/14 15:20:14 by feberman         ###   ########.fr        #
+#    Updated: 2024/01/04 11:12:14 by feberman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=	philo
-CFLAGS=	-Wall -Werror -Wextra
+CFLAGS=	-Wall -Werror -Wextra -pthread
 
 OBJD=	objects/
 
-SRCs= 	
-OBJs=	$(addprefix $(OBJD), $(MSRCs:.c=.o))
+SRCs= 	philo.c
+OBJs=	$(addprefix $(OBJD), $(SRCs:.c=.o))
 
 all: $(NAME)
 
