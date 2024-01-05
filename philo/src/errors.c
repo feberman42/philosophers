@@ -6,7 +6,7 @@
 /*   By: feberman <feberman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 11:26:54 by feberman          #+#    #+#             */
-/*   Updated: 2024/01/05 09:45:17 by feberman         ###   ########.fr       */
+/*   Updated: 2024/01/05 12:03:52 by feberman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	*ft_error(const char *msg)
 	i = 0;
 	while (msg[i])
 		write(2, msg + i++, 1);
+	write(2, "\n", 1);
 	return (NULL);
 }
 
