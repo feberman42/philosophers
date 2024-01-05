@@ -6,7 +6,7 @@
 /*   By: feberman <feberman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 10:53:58 by feberman          #+#    #+#             */
-/*   Updated: 2024/01/04 17:11:35 by feberman         ###   ########.fr       */
+/*   Updated: 2024/01/05 12:02:58 by feberman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,16 @@ void	*routine(void *p)
 	return (NULL);
 }
 
-int	main(void)
+int	main(int argc, char *argv[])
 {
-	pthread_t	t1;
+	t_data	*data;
 
-	pthread_create(&t1, NULL, &routine, NULL);
-	pthread_join(t1, NULL);
-	usleep(0);
+	data = validate_input(argc, argv);
+	if (!data)
+	{
+		free(data);
+		return (1);
+	}
+	print_data(data);
 	return (0);
 }
