@@ -6,7 +6,7 @@
 /*   By: feberman <feberman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:08:57 by feberman          #+#    #+#             */
-/*   Updated: 2024/01/05 12:00:45 by feberman         ###   ########.fr       */
+/*   Updated: 2024/01/05 12:29:07 by feberman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void	*fill_data(int argc, char *argv[], t_data *data)
 		data->use_eat_count = 1;
 	}
 	convert_timescale(data);
+	if (set_time_offset(data) == 0)
+		return (ft_error(ERR_TIME));
 	return (data);
 }
 
