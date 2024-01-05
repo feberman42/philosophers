@@ -6,7 +6,7 @@
 /*   By: feberman <feberman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:08:57 by feberman          #+#    #+#             */
-/*   Updated: 2024/01/05 10:09:41 by feberman         ###   ########.fr       */
+/*   Updated: 2024/01/05 12:00:45 by feberman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	*fill_data(int argc, char *argv[], t_data *data)
 			return (eval_input_err(tmp));
 		data->use_eat_count = 1;
 	}
+	convert_timescale(data);
 	return (data);
 }
 
@@ -73,4 +74,11 @@ int	convert_input_num(char *str, unsigned int *target)
 	if (*target > (UINT_MAX / 1000))
 		return (3);
 	return (0);
+}
+
+void	convert_timescale(t_data *data)
+{
+	data->time_to_die *= 1000;
+	data->time_to_eat *= 1000;
+	data->time_to_sleep *= 1000;
 }
