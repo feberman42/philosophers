@@ -6,7 +6,7 @@
 #    By: feberman <feberman@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/12 14:30:52 by feberman          #+#    #+#              #
-#    Updated: 2024/01/05 12:29:20 by feberman         ###   ########.fr        #
+#    Updated: 2024/01/05 15:40:30 by feberman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SHELL= 	/bin/bash
 OBJD=	obj/
 SRCD=	src/
 
-SRC_explicit= 	philo.c structs.c errors.c input.c utils.c debug.c time.c
+SRC_explicit= 	philo.c structs.c errors.c input.c utils.c debug.c time.c threads.c
 SRCs=	$(addprefix $(SRCD), $(SRC_explicit))
 OBJs=	$(addprefix $(OBJD), $(SRC_explicit:.c=.o))
 
