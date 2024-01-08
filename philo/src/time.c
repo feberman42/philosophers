@@ -6,7 +6,7 @@
 /*   By: feberman <feberman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 12:19:50 by feberman          #+#    #+#             */
-/*   Updated: 2024/01/05 12:26:28 by feberman         ###   ########.fr       */
+/*   Updated: 2024/01/08 15:33:22 by feberman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	set_time_offset(t_data *data)
 {
-	struct timeval t;
+	struct timeval	t;
 
 	if (gettimeofday(&t, NULL) == -1)
 		return (0);
@@ -24,7 +24,7 @@ int	set_time_offset(t_data *data)
 
 long int	get_time(long int offset)
 {
-	struct timeval t;
+	struct timeval	t;
 
 	if (gettimeofday(&t, NULL) == -1)
 		return (-1);

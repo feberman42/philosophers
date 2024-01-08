@@ -6,7 +6,7 @@
 /*   By: feberman <feberman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 16:43:43 by feberman          #+#    #+#             */
-/*   Updated: 2024/01/05 16:00:21 by feberman         ###   ########.fr       */
+/*   Updated: 2024/01/08 15:31:22 by feberman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,10 @@
 # define DEAD 0
 # define ALIVE 1
 
-typedef	struct	s_data
+typedef struct s_data
 {
 	unsigned int	philo_count;
+
 	unsigned int	time_to_die;
 	unsigned int	time_to_eat;
 	unsigned int	time_to_sleep;
@@ -38,41 +39,41 @@ typedef	struct	s_data
 	struct s_philo	*philos;
 }	t_data;
 
-typedef struct	s_philo
+typedef struct s_philo
 {
 	unsigned int	id;
 	t_data			*data;
 }	t_philo;
 
-void	*routine(void *p);
+void			*routine(void *p);
 
 //structs.c
-t_data	*malloc_data(void);
+t_data			*malloc_data(void);
 
 //input.c
-t_data	*validate_input(int argc, char *argv[]);
-void	*fill_data(int argc, char *argv[], t_data *data);
-int		convert_input_num(char *str, unsigned int *target);
-void	convert_timescale(t_data *data);
+t_data			*validate_input(int argc, char *argv[]);
+void			*fill_data(int argc, char *argv[], t_data *data);
+int				convert_input_num(char *str, unsigned int *target);
+void			convert_timescale(t_data *data);
 
 //threads.c
-int	launch_threads(t_data *data);
+int				launch_threads(t_data *data);
 
 //utils.c
 unsigned int	ft_strlen(const char *str);
-t_philo	*get_philos_arr(t_data *data);
-int	*get_states_arr(t_data *data);
+t_philo			*get_philos_arr(t_data *data);
+int				*get_states_arr(t_data *data);
 
 //time.c
-int			set_time_offset(t_data *data);
-long int	get_time(long int offset);
+int				set_time_offset(t_data *data);
+long int		get_time(long int offset);
 
 //errors.c
-void	*ft_error(const char *msg);
-void	*eval_input_err(int	code);
+void			*ft_error(const char *msg);
+void			*eval_input_err(int code);
 
 //debug.c
-void	print_data(t_data *data);
-void	ft_putendl_fd(char *s, int fd);
+void			print_data(t_data *data);
+void			ft_putendl_fd(char *s, int fd);
 
 #endif

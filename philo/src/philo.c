@@ -6,7 +6,7 @@
 /*   By: feberman <feberman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 10:53:58 by feberman          #+#    #+#             */
-/*   Updated: 2024/01/05 16:07:38 by feberman         ###   ########.fr       */
+/*   Updated: 2024/01/08 15:49:22 by feberman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,7 @@ int	main(int argc, char *argv[])
 	data->states = get_states_arr(data);
 	if (!data->states)
 		return (1);
-	
 	launch_threads(data);
-	
 	monitor_loop(data);
 	return (0);
 }

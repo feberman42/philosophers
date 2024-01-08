@@ -6,7 +6,7 @@
 /*   By: feberman <feberman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 11:26:54 by feberman          #+#    #+#             */
-/*   Updated: 2024/01/05 12:03:52 by feberman         ###   ########.fr       */
+/*   Updated: 2024/01/08 15:32:39 by feberman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	*ft_error(const char *msg)
 	return (NULL);
 }
 
-void	*eval_input_err(int	code)
+void	*eval_input_err(int code)
 {
 	if (code == 1)
 		return (ft_error(ERR_NOT_NUM));

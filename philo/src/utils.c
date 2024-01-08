@@ -6,7 +6,7 @@
 /*   By: feberman <feberman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:13:54 by feberman          #+#    #+#             */
-/*   Updated: 2024/01/05 15:55:40 by feberman         ###   ########.fr       */
+/*   Updated: 2024/01/08 15:33:31 by feberman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ t_philo	*get_philos_arr(t_data *data)
 
 int	*get_states_arr(t_data *data)
 {
-	int	*states;
+	int				*states;
 	unsigned int	i;
 
 	states = malloc(sizeof(int) * data->philo_count);
