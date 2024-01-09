@@ -6,7 +6,7 @@
 /*   By: feberman <feberman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 10:53:58 by feberman          #+#    #+#             */
-/*   Updated: 2024/01/08 15:49:22 by feberman         ###   ########.fr       */
+/*   Updated: 2024/01/09 19:58:54 by feberman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*routine(void *p)
 	philo = (t_philo *)p;
 	printf("Hello from %u\n", philo->id);
 	sleep(2);
+	print_log(THINK, philo->id, philo->data->time_offset);
+	sleep(1);
 	philo->data->states[philo->id - 1] = DEAD;
 	return (NULL);
 }
@@ -34,7 +36,7 @@ void	monitor_loop(t_data *data)
 		{
 			if (data->states[i++] == DEAD)
 			{
-				printf("%u is dead.\n", i); //TODO build msg system w time
+				print_log(DEATH, i, data->time_offset);
 				return ;
 			}
 		}
