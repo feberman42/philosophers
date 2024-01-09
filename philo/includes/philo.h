@@ -6,7 +6,7 @@
 /*   By: feberman <feberman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 16:43:43 by feberman          #+#    #+#             */
-/*   Updated: 2024/01/09 19:55:23 by feberman         ###   ########.fr       */
+/*   Updated: 2024/01/09 20:18:49 by feberman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct s_data
 	int				use_eat_count;
 	long long int	time_offset;
 	int				*states;
+	long int		*last_eaten;
 	struct s_philo	*philos;
 }	t_data;
 
@@ -67,10 +68,12 @@ void	print_log(const char *msg, unsigned int id, long time_offset);
 unsigned int	ft_strlen(const char *str);
 t_philo			*get_philos_arr(t_data *data);
 int				*get_states_arr(t_data *data);
+long int		*get_last_eaten_arr(t_data *data);
 
 //time.c
 int				set_time_offset(t_data *data);
 long int		get_time(long int offset);
+long int		get_time_ms(long int offset);
 
 //errors.c
 void			*ft_error(const char *msg);

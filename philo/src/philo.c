@@ -6,7 +6,7 @@
 /*   By: feberman <feberman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 10:53:58 by feberman          #+#    #+#             */
-/*   Updated: 2024/01/09 19:58:54 by feberman         ###   ########.fr       */
+/*   Updated: 2024/01/09 20:24:54 by feberman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,9 @@ void	*routine(void *p)
 	t_philo	*philo;
 
 	philo = (t_philo *)p;
-	printf("Hello from %u\n", philo->id);
-	sleep(2);
 	print_log(THINK, philo->id, philo->data->time_offset);
-	sleep(1);
-	philo->data->states[philo->id - 1] = DEAD;
+	while (1)
+	{}
 	return (NULL);
 }
 
@@ -32,9 +30,11 @@ void	monitor_loop(t_data *data)
 	while (1)
 	{
 		i = 0;
-		while (i < data->philo_count)
+		while (i++ <= data->philo_count)
 		{
-			if (data->states[i++] == DEAD)
+			if (data->last_eaten[i] - get_time(data->time_offset) > data->time_to_die)
+				data->states[i] = DEAD;
+			if (data->states[i] == DEAD)
 			{
 				print_log(DEATH, i, data->time_offset);
 				return ;
@@ -59,6 +59,9 @@ int	main(int argc, char *argv[])
 		return (1);
 	data->states = get_states_arr(data);
 	if (!data->states)
+		return (1);
+	data->last_eaten = get_last_eaten_arr(data);
+	if (!data->last_eaten)
 		return (1);
 	launch_threads(data);
 	monitor_loop(data);

@@ -6,7 +6,7 @@
 /*   By: feberman <feberman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:13:54 by feberman          #+#    #+#             */
-/*   Updated: 2024/01/08 15:33:31 by feberman         ###   ########.fr       */
+/*   Updated: 2024/01/09 20:23:04 by feberman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,21 @@ int	*get_states_arr(t_data *data)
 	while (i < data->philo_count)
 		states[i++] = ALIVE;
 	return (states);
+}
+
+long int	*get_last_eaten_arr(t_data *data)
+{
+	long int		*last_eaten;
+	unsigned int	i;
+
+	last_eaten = malloc(sizeof(long int) * data->philo_count);
+	if (!last_eaten)
+	{
+		free(data);
+		return (ft_error(ERR_MALLOC));
+	}
+	i = 0;
+	while (i < data->philo_count)
+		last_eaten[i++] = 0;
+	return (last_eaten);
 }

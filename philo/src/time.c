@@ -6,7 +6,7 @@
 /*   By: feberman <feberman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 12:19:50 by feberman          #+#    #+#             */
-/*   Updated: 2024/01/09 19:48:08 by feberman         ###   ########.fr       */
+/*   Updated: 2024/01/09 20:12:06 by feberman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,10 @@ long int	get_time(long int offset)
 
 	if (gettimeofday(&t, NULL) == -1)
 		return (-1);
-	return (((t.tv_sec * 1000000 + t.tv_usec) - offset) / 1000);
+	return ((t.tv_sec * 1000000 + t.tv_usec) - offset);
+}
+
+long int	get_time_ms(long int offset)
+{
+	return (get_time(offset) / 1000);
 }

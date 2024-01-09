@@ -6,7 +6,7 @@
 /*   By: feberman <feberman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 19:48:21 by feberman          #+#    #+#             */
-/*   Updated: 2024/01/09 19:55:02 by feberman         ###   ########.fr       */
+/*   Updated: 2024/01/09 20:16:42 by feberman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	print_log(const char *msg, unsigned int id, long time_offset)
 {
-	printf("%li %i %s\n", get_time(time_offset), id, msg);
+	printf("%li %i %s\n", get_time_ms(time_offset), id, msg);
 }
