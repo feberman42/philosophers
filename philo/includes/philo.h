@@ -6,7 +6,7 @@
 /*   By: feberman <feberman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 16:43:43 by feberman          #+#    #+#             */
-/*   Updated: 2024/01/08 15:31:22 by feberman         ###   ########.fr       */
+/*   Updated: 2024/01/09 19:55:23 by feberman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <limits.h>
 # include <sys/time.h>
 # include "errors.h"
+# include "msg.h"
 
 # define DEAD 0
 # define ALIVE 1
@@ -58,6 +59,9 @@ void			convert_timescale(t_data *data);
 
 //threads.c
 int				launch_threads(t_data *data);
+
+//print.c
+void	print_log(const char *msg, unsigned int id, long time_offset);
 
 //utils.c
 unsigned int	ft_strlen(const char *str);
