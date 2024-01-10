@@ -6,11 +6,36 @@
 /*   By: feberman <feberman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 09:20:29 by feberman          #+#    #+#             */
-/*   Updated: 2024/01/08 15:32:46 by feberman         ###   ########.fr       */
+/*   Updated: 2024/01/10 22:47:05 by feberman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+t_data	*setup(int	argc, char *argv[])
+{
+	t_data	*data;
+
+	data = validate_input(argc);
+	if (!data)
+		return (NULL);
+	if (!fill_data(argc, argv, data))
+		return (free_data(data));
+	// print_data(data);
+	data->philos = get_philos_arr(data);
+	if (!data->philos)
+		return (free_data(data));
+	data->states = get_states_arr(data);
+	if (!data->states)
+		return (free_data(data));
+	data->last_eaten = get_last_eaten_arr(data);
+	if (!data->last_eaten)
+		return (free_data(data));
+	if (init_forks_m(data) != 0)
+		return (free_data(data));
+	init_mutexes(data);
+	return (data);
+}
 
 t_data	*malloc_data(void)
 {
@@ -21,4 +46,33 @@ t_data	*malloc_data(void)
 		return (NULL);
 	memset(data, 0, sizeof(t_data));
 	return (data);
+}
+
+void	*free_data(t_data *data)
+{
+	unsigned int	i;
+
+	if (!data)
+		return (NULL);
+	if (data->states)
+		free(data->states);
+	if (data->last_eaten)
+		free(data->last_eaten);
+	if (data->philos)
+		free(data->philos);
+	if (data->forks)
+		free(data->forks);
+	if (data->forks_m)
+	{
+		i = 0;
+		while (i < data->philo_count)
+			pthread_mutex_destroy(&data->forks_m[i++]);
+		free(data->forks_m);
+	}
+	pthread_mutex_destroy(&data->write_lock);
+	pthread_mutex_destroy(&data->running_m);
+	pthread_mutex_destroy(&data->last_eaten_m);
+	pthread_mutex_destroy(&data->states_m);
+	free(data);
+	return (NULL);
 }

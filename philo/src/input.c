@@ -6,24 +6,24 @@
 /*   By: feberman <feberman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:08:57 by feberman          #+#    #+#             */
-/*   Updated: 2024/01/08 15:32:43 by feberman         ###   ########.fr       */
+/*   Updated: 2024/01/10 20:12:53 by feberman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-t_data	*validate_input(int argc, char *argv[])
+t_data	*validate_input(int argc)
 {
 	t_data			*data;
 
+	if (argc < 5 || argc > 6)
+		return (ft_error(ERR_ARG_NUM));
 	data = malloc_data();
 	if (!data)
 		return (ft_error(ERR_MALLOC));
-	if (argc < 5 || argc > 6)
-		return (ft_error(ERR_ARG_NUM));
 	data->eat_count = 0;
 	data->use_eat_count = 0;
-	return (fill_data(argc, argv, data));
+	return (data);
 }
 
 void	*fill_data(int argc, char *argv[], t_data *data)
@@ -50,8 +50,6 @@ void	*fill_data(int argc, char *argv[], t_data *data)
 		data->use_eat_count = 1;
 	}
 	convert_timescale(data);
-	if (set_time_offset(data) == 0)
-		return (ft_error(ERR_TIME));
 	return (data);
 }
 
