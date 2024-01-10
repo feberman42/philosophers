@@ -6,7 +6,7 @@
 /*   By: feberman <feberman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 15:35:19 by feberman          #+#    #+#             */
-/*   Updated: 2024/01/08 15:32:49 by feberman         ###   ########.fr       */
+/*   Updated: 2024/01/10 18:50:29 by feberman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 int	launch_threads(t_data *data)
 {
-	pthread_t		t;
 	unsigned int	i;
+	t_philo			*philo;
 
 	i = 0;
 	while (i < data->philo_count)
 	{
-		pthread_create(&t, NULL, &routine, data->philos + i);
-		pthread_detach(t);
+		philo = &data->philos[i];
+		pthread_create(&philo->thread, NULL, &routine, philo);
 		i++;
 	}
 	return (0);
