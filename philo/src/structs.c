@@ -6,13 +6,13 @@
 /*   By: feberman <feberman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/05 09:20:29 by feberman          #+#    #+#             */
-/*   Updated: 2024/01/10 22:47:05 by feberman         ###   ########.fr       */
+/*   Updated: 2024/01/11 12:56:57 by feberman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-t_data	*setup(int	argc, char *argv[])
+t_data	*setup(int argc, char *argv[])
 {
 	t_data	*data;
 
@@ -21,7 +21,6 @@ t_data	*setup(int	argc, char *argv[])
 		return (NULL);
 	if (!fill_data(argc, argv, data))
 		return (free_data(data));
-	// print_data(data);
 	data->philos = get_philos_arr(data);
 	if (!data->philos)
 		return (free_data(data));
@@ -69,10 +68,7 @@ void	*free_data(t_data *data)
 			pthread_mutex_destroy(&data->forks_m[i++]);
 		free(data->forks_m);
 	}
-	pthread_mutex_destroy(&data->write_lock);
-	pthread_mutex_destroy(&data->running_m);
-	pthread_mutex_destroy(&data->last_eaten_m);
-	pthread_mutex_destroy(&data->states_m);
+	destoy_mutexes(data);
 	free(data);
 	return (NULL);
 }

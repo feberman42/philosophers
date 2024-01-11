@@ -6,7 +6,7 @@
 /*   By: feberman <feberman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 17:13:54 by feberman          #+#    #+#             */
-/*   Updated: 2024/01/10 21:47:25 by feberman         ###   ########.fr       */
+/*   Updated: 2024/01/11 12:58:02 by feberman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,13 @@ t_philo	*get_philos_arr(t_data *data)
 	while (i < data->philo_count)
 	{
 		philos[i].id = i + 1;
+		philos[i].philo_count = data->philo_count;
 		philos[i].data = data;
 		philos[i].time_to_die = data->time_to_die;
 		philos[i].time_to_eat = data->time_to_eat;
 		philos[i].time_to_sleep = data->time_to_sleep;
+		philos[i].eat_count = data->eat_count;
+		philos[i].eaten = 0;
 		i++;
 	}
 	return (philos);
@@ -78,25 +81,4 @@ long int	*get_last_eaten_arr(t_data *data)
 	while (i < data->philo_count)
 		last_eaten[i++] = 0;
 	return (last_eaten);
-}
-
-int	init_forks_m(t_data *data)
-{
-	unsigned int	i;
-
-	data->forks_m = malloc(sizeof(pthread_mutex_t) * data->philo_count);
-	data->forks = malloc(sizeof(int) * data->philo_count);
-	if (!data->forks_m || !data->forks)
-	{
-		ft_error(ERR_MALLOC);
-		return (1);
-	}
-	i = 0;
-	while (i < data->philo_count)
-	{
-		pthread_mutex_init(&data->forks_m[i], NULL);
-		data->forks[i] = 1;
-		i++;
-	}
-	return (0);
 }
