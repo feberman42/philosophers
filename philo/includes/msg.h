@@ -6,7 +6,7 @@
 /*   By: feberman <feberman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 19:48:51 by feberman          #+#    #+#             */
-/*   Updated: 2024/01/10 17:24:34 by feberman         ###   ########.fr       */
+/*   Updated: 2024/01/11 11:38:09 by feberman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,6 @@
 # define FORK "has taken a fork"
 # define EAT "is eating"
 # define SLEEP "is sleeping"
-# define FORK_FAIL "couldn't grab forks."
+# define ATE_ENOUGH "\rAll philosophers ate enough."
 
 #endif
