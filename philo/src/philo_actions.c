@@ -6,7 +6,7 @@
 /*   By: feberman <feberman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:22:08 by feberman          #+#    #+#             */
-/*   Updated: 2024/01/11 12:46:47 by feberman         ###   ########.fr       */
+/*   Updated: 2024/01/15 11:55:59 by feberman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	philo_loop(t_data *data, t_philo *philo, unsigned int id)
 			print_log(SLEEP, philo, 1);
 			usleep(philo->time_to_sleep);
 			print_log(THINK, philo, 1);
+			usleep(100);
 		}
 		else
 			usleep(10);
