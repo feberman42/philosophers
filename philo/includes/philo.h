@@ -6,7 +6,7 @@
 /*   By: feberman <feberman@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/04 16:43:43 by feberman          #+#    #+#             */
-/*   Updated: 2024/01/11 13:12:31 by feberman         ###   ########.fr       */
+/*   Updated: 2024/01/11 13:18:35 by feberman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@
 # define DEAD 0
 # define ALIVE 1
 
-void			*routine(void *p);
-
 //structs.c
 t_data			*malloc_data(void);
 t_data			*setup(int argc, char *argv[]);
@@ -47,6 +45,7 @@ int				check_starve(t_data *data, unsigned int i, long int now);
 int				check_ate_enough(t_data *data);
 
 //threads.c
+void			*routine(void *p);
 int				launch_threads(t_data *data);
 
 //mutexes.c
