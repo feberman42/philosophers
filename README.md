@@ -1,5 +1,7 @@
 # The Philosophers project of the 42 Core Curriculum
 
+This project is about using multiple threads (pthread) to run a simulation.
+
 ### The general rules
 - One or more philosophers sit at a round table.  
 There is a large bowl of spaghetti in the middle of the table.
